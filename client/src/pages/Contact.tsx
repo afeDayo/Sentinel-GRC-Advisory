@@ -141,7 +141,9 @@ const Contact = () => {
     setStatus({ type: "loading", message: "Sending your message..." });
 
     try {
-      const API_URL = import.meta.env.VITE_API_URL || "";
+      const API_URL =
+        (import.meta as unknown as { env: { VITE_API_URL?: string } }).env
+          .VITE_API_URL || "";
       const res = await fetch(`${API_URL}/api/contact`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
