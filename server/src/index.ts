@@ -61,7 +61,4 @@ const start = async () => {
 start();
 
 export default app;
-//dpjy npdx arpc nxyy
-//afedayo_db_user
-//h8iUZDwzb1P2vaqv
-//mongodb+srv://afedayo_db_user:h8iUZDwzb1P2vaqv@cluster0.itu5kum.mongodb.net/?appName=Cluster0
+
