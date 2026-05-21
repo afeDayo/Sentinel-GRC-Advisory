@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 // CORS — allow requests from the client
 const allowedOrigins = [
   process.env.CLIENT_URL || "http://localhost:5173",
-  "https://sentinel-grc.vercel.app", // update this to your actual Vercel URL
+  "https://sentinel-grc-advisory.vercel.app/", // update this to your actual Vercel URL
 ];
 
 app.use(
