@@ -15,23 +15,33 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // CORS — allow requests from the client
-const allowedOrigins = [
-  process.env.CLIENT_URL || "http://localhost:5173",
-  "https://sentinel-grc-advisory.vercel.app/", // update this to your actual Vercel URL
-];
+// const allowedOrigins = [
+//   process.env.CLIENT_URL || "http://localhost:5173",
+//   "https://sentinel-grc-advisory.vercel.app/",
+// ];
+
+// app.use(
+//   cors({
+//     origin: (origin, callback) => {
+
+//       if (!origin) return callback(null, true);
+//       if (allowedOrigins.includes(origin)) return callback(null, true);
+//       callback(new Error(`CORS policy: origin ${origin} not allowed`));
+//     },
+//     methods: ["GET", "POST"],
+//     credentials: true,
+//   }),
+// );
 
 app.use(
   cors({
-    origin: (origin, callback) => {
-      // Allow requests with no origin (e.g. Postman, server-to-server)
-      if (!origin) return callback(null, true);
-      if (allowedOrigins.includes(origin)) return callback(null, true);
-      callback(new Error(`CORS policy: origin ${origin} not allowed`));
-    },
-    methods: ["GET", "POST"],
-    credentials: true,
+    origin: "*",
+    methods: ["GET", "POST", "OPTIONS"],
+    allowedHeaders: ["Content-Type"],
   }),
 );
+
+app.options("*", cors());
 
 // ── Routes ─────────────────────────────────────────────────────────────────────
 app.get("/", (_req: Request, res: Response) => {
