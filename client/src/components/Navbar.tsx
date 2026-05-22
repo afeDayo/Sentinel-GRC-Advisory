@@ -44,7 +44,11 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`sticky top-0 z-50 border-b border-[#F39B1F] bg-white transition-shadow duration-300 ${scrolled ? "shadow-md" : ""}`}
+      className={`sticky top-0 z-50 border-b border-[#F39B1F] transition-all duration-300 ${
+        scrolled
+          ? "bg-white/70 backdrop-blur-md shadow-md"
+          : "bg-white backdrop-blur-0"
+      }`}
     >
       <div className="mx-auto flex h-[101px] lg:h-28 xl:h-32 max-w-[1440px] items-center justify-between px-4 sm:px-8 lg:px-16 xl:px-20 2xl:px-24 pt-5 sm:pt-0">
         {/* Logo */}

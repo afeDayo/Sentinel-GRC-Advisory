@@ -68,9 +68,21 @@ const Footer = () => {
                 </h4>
                 <div className="flex items-center gap-3 px-2.5 py-2">
                   {[
-                    { icon: <FaLinkedinIn />, href: "#", label: "LinkedIn" },
-                    { icon: <FaFacebookF />, href: "#", label: "Facebook" },
-                    { icon: <FaInstagram />, href: "#", label: "Instagram" },
+                    {
+                      icon: <FaLinkedinIn />,
+                      href: "https://www.linkedin.com/company/sentinel-grc-advisory/",
+                      label: "LinkedIn",
+                    },
+                    {
+                      icon: <FaFacebookF />,
+                      href: "https://www.facebook.com/share/1CdycmaPiA/",
+                      label: "Facebook",
+                    },
+                    {
+                      icon: <FaInstagram />,
+                      href: "https://www.instagram.com/sentinel_grc_advisory?igsh=MXRvNHo0MDU3Y25oNw==",
+                      label: "Instagram",
+                    },
                   ].map(({ icon, href, label }) => (
                     <a
                       key={label}

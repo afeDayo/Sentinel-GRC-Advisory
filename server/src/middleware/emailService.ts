@@ -1,7 +1,7 @@
 import { Resend } from "resend";
 import { ContactFormData } from "../types/contact";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const getResend = () => new Resend(process.env.RESEND_API_KEY);
 
 const buildEmailToSentinel = (data: ContactFormData): string => `
 <!DOCTYPE html>
@@ -81,7 +81,7 @@ export const sendContactEmail = async (
   data: ContactFormData,
 ): Promise<void> => {
   // 1. Notify Sentinel
-  await resend.emails.send({
+  await getResend().emails.send({
     from: "Sentinel Website <onboarding@resend.dev>",
     to: process.env.EMAIL_TO!,
     replyTo: data.email,
@@ -90,7 +90,7 @@ export const sendContactEmail = async (
   });
 
   // 2. Auto-reply to sender
-  await resend.emails.send({
+  await getResend().emails.send({
     from: "Sentinel GRC Advisory <onboarding@resend.dev>",
     to: data.email,
     subject: "We received your message — Sentinel GRC Advisory",
