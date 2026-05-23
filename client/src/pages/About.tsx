@@ -28,7 +28,7 @@ interface WhyCardProps {
 }
 
 const WhyCard = ({ text }: WhyCardProps) => (
-  <div className="w-full border border-[#040B7445] rounded-[15px] sm:px-4 sm:h-[81px] sm:gap-3 flex items-center justify-start card-hover px-[15px] h-[42px] gap-[10px]">
+  <div className="w-[300px] mx-auto sm:w-full border border-[#040B7445] rounded-[15px] sm:px-4 sm:h-[81px] sm:gap-3 flex items-center justify-start card-hover px-[15px] h-[42px] gap-[10px]">
     <RiCheckboxCircleLine className="text-[16px] sm:text-2xl text-[#040B74] shrink-0" />
     <p className="font-normal text-[12px] sm:text-[20px] text-[#000000] leading-tight">
       {text}
@@ -185,7 +185,7 @@ const About = () => {
             </p>
           </div>
 
-          <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-x-[80px] max-w-[1240px] px-[51px] sm:px-0">
+          <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-x-[80px] max-w-[1240px]">
             {[
               "Hands-on GRC execution focus",
               "Multi-disciplinary expertise",

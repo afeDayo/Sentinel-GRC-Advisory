@@ -1,6 +1,34 @@
 import { Link } from "react-router-dom";
-import { GoArrowRight } from "react-icons/go";
+import { GoArrowRight, GoArrowDown } from "react-icons/go";
 import ServicesHero from "../components/HeroSections/ServicesHero";
+
+// ── Process steps data ───────────────────────────────────────────────────────
+const steps = [
+  {
+    icon: "/assessment.png",
+    title: "Assessment",
+    description:
+      "We begin by evaluating your current structures, policies, and compliance status. This helps us identify gaps, risks, and opportunities for improvement.",
+  },
+  {
+    icon: "/strategy.png",
+    title: "Strategy Development",
+    description:
+      "Based on the assessment, we design a tailored compliance and governance strategy that aligns with your business goals and regulatory requirements.",
+  },
+  {
+    icon: "/implementation.png",
+    title: "Implementation",
+    description:
+      "We put the strategy into action by developing policies, setting up frameworks, and embedding compliance practices into your daily operations.",
+  },
+  {
+    icon: "/monitoring.png",
+    title: "Monitoring & Support",
+    description:
+      "We provide continuous monitoring, regular check-ins, and timely updates to ensure your business remains resilient and prepared for change.",
+  },
+];
 
 // ── Process step card ─────────────────────────────────────────────────────────
 interface StepCardProps {
@@ -131,48 +159,26 @@ const Services = () => {
             />
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:w-full lg:hidden w-[234px]">
-            {[
-              {
-                icon: "/assessment.png",
-                title: "Assessment",
-                description:
-                  "We begin by evaluating your current structures, policies, and compliance status. This helps us identify gaps, risks, and opportunities for improvement.",
-              },
-              {
-                icon: "/strategy.png",
-                title: "Strategy Development",
-                description:
-                  "Based on the assessment, we design a tailored compliance and governance strategy that aligns with your business goals and regulatory requirements.  ",
-              },
-              {
-                icon: "/implementation.png",
-                title: "Implementation",
-                description:
-                  "We put the strategy into action by developing policies, setting up frameworks, and embedding compliance practices into your daily operations.",
-              },
-              {
-                icon: "/monitoring.png",
-                title: "Monitoring & Support",
-                description:
-                  "We provide continuous monitoring, regular check-ins, and timely updates to ensure your business remains resilient and prepared for change.",
-              },
-            ].map((s) => (
-              <div
-                key={s.title}
-                className="card-hover p-5 border border-[#040B7445] shadow-[5px_5px_6px_0px_#040B7445] flex flex-col items-center rounded-[25px]"
-              >
-                <img
-                  src={s.icon}
-                  alt={s.title}
-                  className="w-6 h-6 sm:w-14 sm:h-14 object-contain"
-                />
-                <h4 className="text-[#F39B1F] font-semibold text-[14px] sm:text-lg py-2 text-center">
-                  {s.title}
-                </h4>
-                <p className="text-[11px] font-normal text-[#000000] leading-snug text-center">
-                  {s.description}
-                </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 sm:gap-6 sm:w-full lg:hidden w-[234px]">
+            {steps.map((s, idx) => (
+              <div key={s.title} className="w-full flex flex-col items-center">
+                <div className="card-hover p-5 border border-[#040B7445] shadow-[5px_5px_6px_0px_#040B7445] flex flex-col items-center rounded-[25px] w-full">
+                  <img
+                    src={s.icon}
+                    alt={s.title}
+                    className="w-6 h-6 sm:w-14 sm:h-14 object-contain"
+                  />
+                  <h4 className="text-[#F39B1F] font-semibold text-[14px] sm:text-lg py-2 text-center">
+                    {s.title}
+                  </h4>
+                  <p className="text-[11px] font-normal text-[#000000] leading-snug text-center">
+                    {s.description}
+                  </p>
+                </div>
+
+                {idx !== steps.length - 1 && (
+                  <GoArrowDown className="text-2xl text-[#040B7445]" />
+                )}
               </div>
             ))}
           </div>
@@ -238,7 +244,7 @@ const Services = () => {
             to a wide range of organizations such as:
           </p>
 
-          <div className="w-full grid grid-cols-2 lg:grid-cols-3 gap-[15px] sm:gap-x-[64px] sm:gap-y-[50px]">
+          <div className="w-full grid grid-cols-2 lg:grid-cols-3 gap-[15px] sm:gap-x-[50px] sm:gap-y-[50px]">
             <WhoCard
               icon="/house.png"
               title="Businesses"

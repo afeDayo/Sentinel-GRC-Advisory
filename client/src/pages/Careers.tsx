@@ -1,9 +1,37 @@
-import { GoArrowRight } from "react-icons/go";
+import { GoArrowRight, GoArrowDown } from "react-icons/go";
 import { FiMail } from "react-icons/fi";
 import { IoIosWarning, IoIosSend } from "react-icons/io";
 import { RiCheckboxCircleLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import CareersHero from "../components/HeroSections/CareersHero";
+
+// ── Application process steps ────────────────────────────────────────────────
+const applicationSteps = [
+  {
+    icon: "/application.png",
+    title: "Submit Your Application",
+    description:
+      "Send your application through our website or via email, including your CV and any relevant information.",
+  },
+  {
+    icon: "/application.png",
+    title: "Application Review",
+    description:
+      "Our team carefully reviews your submission to assess your skills, interests, and fit for the role.",
+  },
+  {
+    icon: "/application.png",
+    title: "Interview Stage",
+    description:
+      "Shortlisted candidates will be contacted for a conversation to discuss their experience, goals, and potential contribution.",
+  },
+  {
+    icon: "/application.png",
+    title: "Final Selection",
+    description:
+      "Successful candidates will receive an offer and further details on the next steps.",
+  },
+];
 
 // ── Application step card ─────────────────────────────────────────────────────
 interface StepCardProps {
@@ -140,43 +168,68 @@ const Careers = () => {
             />
           </div>
 
-          {/* Mobile grid */}
-          <div className="grid grid-cols-2 gap-6 w-full lg:hidden">
-            {[
-              {
-                title: "Submit Your Application",
-                desc: "Send your application through our website or via email, including your CV and any relevant information.",
-              },
-              {
-                title: "Application Review",
-                desc: "Our team carefully reviews your submission to assess your skills, interests, and fit for the role.",
-              },
-              {
-                title: "Final Selection",
-                desc: "Successful candidates will receive an offer and further details on the next steps.",
-              },
-              {
-                title: "Interview Stage",
-                desc: "Shortlisted candidates will be contacted for a conversation to discuss their experience, goals, and potential contribution.",
-              },
-            ].map((s) => (
-              <div
-                key={s.title}
-                className="card-hover p-4 border border-[#040B7445] shadow-[5px_5px_6px_0px_#040B7445] flex flex-col items-center rounded-[25px] h-[134px]"
-              >
-                {/* <img
-                  src="/application.png"
-                  alt={s.title}
-                  className="w-12 h-12 object-contain"
-                /> */}
+          {/* Mobile grid with directional arrows */}
+          <div className="grid grid-cols-2 gap-x-4 gap-y-4 w-full lg:hidden relative">
+            {/* STEP 1 */}
+            <div className="relative">
+              <div className="card-hover p-4 border border-[#040B7445] shadow-[5px_5px_6px_0px_#040B7445] flex flex-col items-center rounded-[25px] h-[170px] justify-center">
                 <h4 className="text-[#F39B1F] font-semibold text-[11px] py-2 text-center">
-                  {s.title}
+                  Submit Your Application
                 </h4>
                 <p className="text-[10px] font-normal text-[#000000] leading-snug text-center">
-                  {s.desc}
+                  Send your application through our website or via email,
+                  including your CV and any relevant information.
                 </p>
               </div>
-            ))}
+
+              {/* RIGHT ARROW */}
+              <GoArrowRight className="absolute -right-5 top-1/2 -translate-y-1/2 text-2xl text-[#040B7445]" />
+            </div>
+
+            {/* STEP 2 */}
+            <div className="relative">
+              <div className="card-hover p-4 border border-[#040B7445] shadow-[5px_5px_6px_0px_#040B7445] flex flex-col items-center rounded-[25px] h-[170px] justify-center">
+                <h4 className="text-[#F39B1F] font-semibold text-[11px] py-2 text-center">
+                  Application Review
+                </h4>
+                <p className="text-[10px] font-normal text-[#000000] leading-snug text-center">
+                  Our team carefully reviews your submission to assess your
+                  skills, interests, and fit for the role.
+                </p>
+              </div>
+
+              {/* DOWN ARROW */}
+              <GoArrowDown className="absolute left-1/2 -bottom-5 -translate-x-1/2 text-2xl text-[#040B7445]" />
+            </div>
+
+            {/* STEP 3 */}
+            <div className="relative">
+              <div className="card-hover p-4 border border-[#040B7445] shadow-[5px_5px_6px_0px_#040B7445] flex flex-col items-center rounded-[25px] h-[170px] justify-center">
+                <h4 className="text-[#F39B1F] font-semibold text-[11px] py-2 text-center">
+                  Interview Stage
+                </h4>
+                <p className="text-[10px] font-normal text-[#000000] leading-snug text-center">
+                  Shortlisted candidates will be contacted for a conversation to
+                  discuss their experience, goals, and potential contribution.
+                </p>
+              </div>
+
+              {/* LEFT ARROW */}
+              <GoArrowRight className="absolute -right-5 top-1/2 -translate-y-1/2 rotate-180 text-2xl text-[#040B7445]" />
+            </div>
+
+            {/* STEP 4 */}
+            <div>
+              <div className="card-hover p-4 border border-[#040B7445] shadow-[5px_5px_6px_0px_#040B7445] flex flex-col items-center rounded-[25px] h-[170px] justify-center">
+                <h4 className="text-[#F39B1F] font-semibold text-[11px] py-2 text-center">
+                  Final Selection
+                </h4>
+                <p className="text-[10px] font-normal text-[#000000] leading-snug text-center">
+                  Successful candidates will receive an offer and further
+                  details on the next steps.
+                </p>
+              </div>
+            </div>
           </div>
 
           <div className="flex flex-col items-center gap-4 sm:gap-[24px]">
